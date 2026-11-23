@@ -1,0 +1,12 @@
+{
+  "station": {
+    "station": "A", "revision_id": "a2", "predecessor": "a1",
+    "source": {"work_order": "LN-12", "round_id": "round-1", "trial_id": "A-corrected"},
+    "entries": {"x": "primary-bench"}, "exits": ["done", "retest"],
+    "transitions": {"primary-bench": [
+      {"target": "done", "probability": "1/2", "ticks": 2, "is_exit": true},
+      {"target": "retest", "probability": "1/2", "ticks": 1, "is_exit": true}
+    ]}
+  },
+  "wiring": {"manifest_id": "night-corrected", "wiring_source": "handover routing card 12"}
+}

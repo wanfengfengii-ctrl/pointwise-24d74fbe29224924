@@ -1,0 +1,30 @@
+{
+  "manifest_id": "night-original",
+  "wiring_source": "night shift routing card 12",
+  "start": ["A", "x"],
+  "deadlines": [1, 3],
+  "routes": [
+    [["A", "done"], null],
+    [["A", "retest"], ["B", "x"]],
+    [["B", "return"], ["A", "x"]]
+  ],
+  "stations": [
+    {
+      "station": "A", "revision_id": "a1",
+      "source": {"work_order": "LN-12", "round_id": "round-1", "trial_id": "A-early"},
+      "entries": {"x": "primary-bench"}, "exits": ["done", "retest"],
+      "transitions": {"primary-bench": [
+        {"target": "done", "probability": "1/2", "ticks": 1, "is_exit": true},
+        {"target": "retest", "probability": "1/2", "ticks": 2, "is_exit": true}
+      ]}
+    },
+    {
+      "station": "B", "revision_id": "b1",
+      "source": {"work_order": "LN-12", "round_id": "round-1", "trial_id": "B-early"},
+      "entries": {"x": "return-bench"}, "exits": ["return"],
+      "transitions": {"return-bench": [
+        {"target": "return", "probability": 1, "ticks": 0, "is_exit": true}
+      ]}
+    }
+  ]
+}
